@@ -1,0 +1,78 @@
+:root {
+    --ink: #101916; /* this one isn't actually used anywhere */
+    --cream: white; /* changed to white */
+    --lime: #c8f35d;
+    --muted: #a5b5a9;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif; /* i changed the base font to sans-serif */
+    font-size: 1.3rem; /* increased the overall size of text */
+    color: var(--cream);
+    line-height: 1.6;
+}
+
+/* nearly the entirety of the styling is done via class.*/
+.app-shell {
+    width: 100%;
+    min-height: 100%;
+    background-image: radial-gradient(circle at 83% 18%, rgba(200, 243, 93, .10), transparent 32%);
+}
+
+.result-number {
+    font-family: 'Space Mono', sans-serif;
+    font-variant-numeric: lining-nums;
+    overflow-wrap: anywhere;
+}
+
+.field {
+    width: 100%;
+    background: #101916;  /* great place to use the var(--ink) but it isn't */
+    border: 1px solid #53665a;
+    border-radius: 12px;
+    padding: 14px 16px;
+    color: var(--cream);
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.field:focus {
+    border-color: var(--lime);
+    box-shadow: 0 0 0 3px rgba(200, 243, 93, .18);
+}
+
+.generate {
+    transition: transform .2s, filter .2s;
+}
+
+.generate:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.07);
+}
+
+.generate:active {
+    transform: translateY(0);
+}
+
+:focus-visible {
+    outline: 3px solid var(--lime);
+    outline-offset: 3px;
+}
+
+.dot-grid {
+    background-image: radial-gradient(#c8f35d35 1px, transparent 1px);
+    background-size: 22px 22px;
+}
+
+@media (prefers-reduced-motion:reduce) {
+
+    .generate,
+    .field {
+        transition: none;
+    }
+}
